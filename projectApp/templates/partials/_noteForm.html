@@ -1,0 +1,50 @@
+<div class="card-body p-4">
+    <style>
+        .custom-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <form action="/new" method="post" class="card data-bs-toggle custom-form">
+        <div class="form-group mb-3">
+            <label for="code bg-dark">Código:</label>
+            <input type="number" name="code" id="code" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="customer">Cliente:</label>
+            <input type="text" name="customer" id="customer" placeholder="Escribe el cliente" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="description">Descripción:</label>
+            <textarea name="description" id="description" placeholder="Escribe la descripción" class="form-control" required></textarea>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group mb-3">
+                    <label for="date">Fecha:</label>
+                    <input type="date" name="date" id="date" class="form-control" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-3">
+                    <label for="status">Estado:</label>
+                    <select name="status" id="status" class="form-control" required>
+                        <option value="Pagado">Pagado</option>
+                        <option value="Sin pagar">Sin pagar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-3">
+                    <label for="total">Total:</label>
+                    <input type="number" name="total" id="total" step="0.01" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-warning btn-block">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

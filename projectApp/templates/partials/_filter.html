@@ -1,0 +1,16 @@
+<form action="/search" method="post" onsubmit="return validateForm()">
+    <select id="types_filter" name="types_filter">
+        <option value="by_search" disabled selected>
+            Buscar por:
+        </option>
+        <option value="name">
+            Nombre
+        </option>
+        <option value="code">
+            Código
+        </option>
+    </select>
+    <input id="filter_input" type="search" placeholder="Ingresa el campo" name="filter_input">
+    <input id="btn_filter" class="btn btn-warning" type="submit" value="Buscar">
+</form>
+

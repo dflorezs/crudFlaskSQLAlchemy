@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content  %}
+
+<h3>EDITAR REMISIÓN</h3>
+<div class="card-body p-4">
+    <style>
+        .custom-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <form action="/update/{{ note.id_note }}" method="post" class="card data-bs-toggle">
+      <div class="form-group mb-3">
+        <label for="code bg-dark">Código:</label>
+        <input type="number" name="code" id="code" class="form-control" placeholder="Escribe el código" value="{{ note.code }}" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="customer">Cliente:</label>
+        <input type="text" name="customer" id="customer" placeholder="Escribe el cliente" class="form-control" value="{{ note.customer }}" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Descripción:</label>
+        <textarea name="description" id="description" placeholder="Escribe la descripción" class="form-control" required>{{ note.description }}</textarea>
+      </div>
+      <div class="row ">
+        <div class="col">
+          <div class="form-group mb-3">
+            <label for="date">Fecha:</label>
+            <input type="date" name="date" id="date" class="form-control" value="{{ note.date }}" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group mb-3">
+            <label for="status">Estado:</label>
+            <select name="status" id="status" class="form-control" required>
+              <option value="Pagado" {% if note.status == 'Pagado' %}selected{% endif %}>Pagado</option>
+              <option value="Sin pagar" {% if note.status == 'Sin pagar' %}selected{% endif %}>Sin pagar</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group mb-3">
+            <label for="total">Total:</label>
+            <input type="number" name="total" id="total" step="0.01" class="form-control" value="{{ note.total }}" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-warning btn-block">Guardar</button>
+          <button type="button" class="btn btn-secondary btn-block">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+    document.querySelector('.btn-secondary').addEventListener('click', function() {
+      window.history.back();
+    });
+  </script>
+  
+{% endblock %}
+
